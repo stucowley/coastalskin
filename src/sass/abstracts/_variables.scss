@@ -76,17 +76,17 @@
     --fw-semibold: 600;
     --fw-bold: 700;
 
-    --fs-12: func.rem(12);
-    --fs-14: func.rem(14);
-    --fs-16: func.rem(16);
-    --fs-18: func.rem(18);
-    --fs-20: func.rem(20);
-    --fs-24: func.rem(24);
-    --fs-28: func.rem(28);
-    --fs-32: func.rem(32);
-    --fs-48: func.rem(48);
-    --fs-56: func.rem(56);
-    --fs-64: func.rem(64);
+    --fs-12: #{func.rem(12)};
+    --fs-14: #{func.rem(14)};
+    --fs-16: #{func.rem(16)};
+    --fs-18: #{func.rem(18)};
+    --fs-20: #{func.rem(20)};
+    --fs-24: #{func.rem(24)};
+    --fs-28: #{func.rem(28)};
+    --fs-32: #{func.rem(32)};
+    --fs-48: #{func.rem(48)};
+    --fs-56: #{func.rem(56)};
+    --fs-64: #{func.rem(64)};
 
     --leading-12: 1.6;
     --leading-14: 1.6;
@@ -122,20 +122,20 @@
      * Focus rings
      */
 
-    --focus-ring-width: func.rem(2);
+    --focus-ring-width: #{func.rem(2)};
     --focus-ring-offset: var(--focus-ring-width);
 
     /**
      * Spacing
      */
 
-    --space-100: func.rem(4);
-    --space-200: func.rem(8);
-    --space-300: func.rem(12);
-    --space-400: func.rem(16);
-    --space-500: func.rem(24);
-    --space-600: func.rem(32);
-    --space-700: func.rem(48);
-    --space-800: func.rem(64);
-    --space-900: func.rem(128);
+    --space-100: #{func.rem(4)};
+    --space-200: #{func.rem(8)};
+    --space-300: #{func.rem(12)};
+    --space-400: #{func.rem(16)};
+    --space-500: #{func.rem(24)};
+    --space-600: #{func.rem(32)};
+    --space-700: #{func.rem(48)};
+    --space-800: #{func.rem(64)};
+    --space-900: #{func.rem(128)};
 }
