@@ -1,0 +1,129 @@
+/**
+ * -----------------------------------------------------------------------------
+ * TYPOGRAPHY
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global typography styles used throughout the project.
+ *
+ * These styles apply the project's font families, font sizes, font weights,
+ * line-height (leading), colours, and spacing defaults to common text elements.
+ *
+ * Typography styles should provide a consistent baseline for readable content.
+ * Component-specific type styling live in the relevant component partial.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-16);
+    font-weight: var(--fw-regular);
+    line-height: var(--leading-16);
+    color: hsl(var(--clr-text-primary));
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--ff-heading-primary);
+    font-weight: var(--fw-bold);
+    color: hsl(var(--clr-brand-primary));
+    text-wrap: balance;
+    text-transform: var(--case-caps);
+}
+
+h4,
+h5,
+h6 {
+    font-family: var(--ff-heading-secondary);
+    font-weight: var(--fw-semibold);
+    color: hsl(var(--clr-brand-secondary));
+    text-wrap: balance;
+    text-transform: var(--case-upper);
+    letter-spacing: var(--tracking-wider);
+}
+
+// Create a map variable to store each heading level's font size
+$heading-sizes: (
+    h1: 36,
+    h2: 32,
+    h3: 28,
+    h4: 24,
+    h5: 20,
+    h6: 18
+);
+
+// Iterate through each heading size item
+@each $heading-level, $font-size in $heading-sizes {
+    #{$heading-level} {
+        font-size: var(--fs-#{$font-size});
+        line-height: var(--leading-#{$font-size});
+    }
+}
+
+/**
+ * Inline text elements
+ */
+
+strong,
+b {
+    font-weight: var(--fw-bold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+small {
+    font-size: 75%;
+}
+
+// Increase heading font size based on the viewport size. This is achieved by
+// using a variable map that defines heading level font sizes based on the
+// viewport width.
+
+$heading-size-breakpoints: (
+    48em: (
+        h1: 48,
+        h2: 36,
+        h3: 32,
+        h4: 28,
+        h5: 20,
+        h6: 18
+    ),
+
+    80em: (
+        h1: 56,
+        h2: 48,
+        h3: 36,
+        h4: 32,
+        h5: 24,
+        h6: 20
+    ),
+
+    90em: (
+        h1: 64,
+        h2: 56,
+        h3: 48,
+        h4: 36,
+        h5: 28,
+        h6: 24
+    )
+);
+
+// Iterate through each breakpoint and apply the specific heading font size
+// based on the viewport width
+
+@each $breakpoint, $heading-sizes in $heading-size-breakpoints {
+    @media(min-width: $breakpoint) {
+        @each $heading, $size in $heading-sizes {
+            #{$heading} {
+                font-size: var(--fs-#{$size});
+                line-height: var(--leading-#{$size});
+            }
+        }
+    }
+}
