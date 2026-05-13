@@ -1,0 +1,129 @@
+/**
+ * -----------------------------------------------------------------------------
+ * FONTS
+ * -----------------------------------------------------------------------------
+ *
+ * Registers the custom font files used throughout the project.
+ *
+ * These font-face declarations define the available font families, weights,
+ * and styles used by the site.
+ *
+ * Each font face should include clear font-family, source, font-weight,
+ * font-style, and font-display values to ensure consistent font loading.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+
+/**
+ * Cadiz
+ *
+ * The Cadiz font family is the main font for the site. The required font
+ * weights for the design of the site require regular, semibold and bold.
+ *
+ * Cadiz is used for also used for heading level 4-6.
+ */
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 400,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-Regular.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-Regular.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 400,
+    $style: italic,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-Italic.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-Italic.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 600,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-SemiBold.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-SemiBold.woff') format('woff'),
+    )
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 600,
+    $style: italic,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-SemiBoldItalic.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-SemiBoldItalic.woff') format('woff'),
+    )
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 700,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-Bold.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-Bold.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $weight: 700,
+    $style: italic,
+    $src: (
+        url('/src/assets/fonts/Cadiz/Cadiz-BoldItalic.woff2') format('woff2'),
+        url('/src/assets/fonts/Cadiz/Cadiz-BoldItalic.woff') format('woff1')
+    )
+);
+
+/**
+ * Ivy Mode
+ *
+ * The Ivy Mode font family is the font for site headings. The required font
+ * weights for the design of the site require regular and bold.
+ *
+ * Cadiz is used for also used for heading level 1-3.
+ */
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $weight: 400,
+    $src: (
+        url('/src/assets/fonts/IvyMode/IvyMode-Regular.woff2') format('woff2'),
+        url('/src/assets/fonts/IvyMode/IvyMode-Regular.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $weight: 400,
+    $style: italic,
+    $src: (
+        url('/src/assets/fonts/IvyMode/IvyMode-Italic.woff2') format('woff2'),
+        url('/src/assets/fonts/IvyMode/IvyMode-Italic.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $weight: 600,
+    $src: (
+        url('/src/assets/fonts/IvyMode/IvyMode-Bold.woff2') format('woff2'),
+        url('/src/assets/fonts/IvyMode/IvyMode-Bold.woff') format('woff')
+    )
+);
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $weight: 600,
+    $style: italic,
+    $src: (
+        url('/src/assets/fonts/IvyMode/IvyMode-BoldItalic.woff2') format('woff2'),
+        url('/src/assets/fonts/IvyMode/IvyMode-BoldItalic.woff') format('woff')
+    )
+);
