@@ -1,0 +1,56 @@
+/**
+ * -----------------------------------------------------------------------------
+ * BOILERPLATE
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global base styles used across the project.
+ *
+ * These styles build on the reset by applying low-level defaults for the
+ * document, body, links, buttons, form elements, media, and common interactive
+ * states.
+ *
+ * Boilerplate styles should remain broad and reusable. Component-specific
+ * styling should live in the relevant component partial.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+body {
+    background-color: hsl(var(--clr-neutral-100));
+}
+
+a {
+    color: hsl(var(--clr-link));
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    &:hover,
+    &:focus-visible,
+    &:focus-within {
+        color: hsl(var(--clr-link-active));
+    }
+}
+
+:focus-visible {
+    outline: var(--focus-ring-width) solid hsl(var(--clr-focus-ring) / 0.65);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: func.rem(4);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+[hidden] {
+    display: none !important;
+}
