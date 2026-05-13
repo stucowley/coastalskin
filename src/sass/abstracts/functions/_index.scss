@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// FUNCTIONS INDEX
+// -----------------------------------------------------------------------------
+//
+// Forwards reusable function partials so shared value helpers can be loaded
+// from a single entry point.
+//
+// Functions should be used to calculate, transform, or return values rather
+// than output CSS declarations directly.
+//
+// This file should on forward function partials and should not contain direct
+// CSS output.
+//
+// =============================================================================
+
+@forward 'rem';

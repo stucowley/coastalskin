@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// REM FUNCTION
+// -----------------------------------------------------------------------------
+//
+// Provides a helper function to calculate pixel-based values into rem units.
+//
+// Use this function when you want to write values in familiar pixel terms
+// while outputting scalable rem values in the compiled CSS. This is useful for
+// font sizes, spacing, gaps, border radius, and other layout-related
+// measurements.
+//
+// =============================================================================
+
+@use 'sass:math';
+
+@function rem($px, $base: 16) {
+    @return math.div($px, $base) * 1rem;
+}
