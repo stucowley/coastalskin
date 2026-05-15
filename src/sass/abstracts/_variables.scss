@@ -140,4 +140,14 @@
     --space-700: #{func.rem(48)};
     --space-800: #{func.rem(64)};
     --space-900: #{func.rem(128)};
+
+    /**
+     * Layout
+     *
+     * Defines reusable layout values to control global spacing, container
+     * width and structual page alignment.
+     */
+
+    --container-max-width: #{func.rem(1200)};
+    --container-padding: #{func.rem(32)};
 }

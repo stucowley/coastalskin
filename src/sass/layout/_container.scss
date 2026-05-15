@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * CONTAINER
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global container layout used to control page width and
+ * horizontal spacing across the site.
+ *
+ * Container styles keep content aligned consistently across the viewport while
+ * allowing sections and components to share the same layout boundries.
+ *
+ * ========================================================================== */
+
+.container {
+    width: min(100% - var(--container-padding), var(--container-max-width));
+    margin-inline: auto;
+}
