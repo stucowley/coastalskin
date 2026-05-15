@@ -20,7 +20,7 @@
 @use 'sass:list';
 
 @mixin position(
-    $position,
+    $type,
     $inset-block: null,
     $inset-inline: null,
     $top: null,
@@ -30,11 +30,11 @@
 ) {
     $valid-position-types: static, relative, absolute, fixed, sticky;
 
-    @if not list.index($valid-position-types, $position) {
+    @if not list.index($valid-position-types, $type) {
         @error "`#{$type}` is not a valid position type";
     }
 
-    position: $position;
+    position: $type;
 
     @if $inset-block != null {
         inset-block: $inset-block;
