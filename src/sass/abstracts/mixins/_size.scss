@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// SIZE MIXIN
+// -----------------------------------------------------------------------------
+//
+// Provides a reusable helper for applying width and height values.
+//
+// This mixin keeps sizing declarations consistent by centralising common width
+// and height patterns, such as squared icons, image wrappers, buttons and
+// decorative elements.
+//
+// If only a width value is provided, the height will use the same value by
+// default, making it useful for creating equal-width and equal-height elements.
+//
+// Use this mixin when an element needs a shared or repeated width and height
+// declaration
+//
+// =============================================================================
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $width;
+}
