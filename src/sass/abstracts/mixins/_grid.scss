@@ -1,0 +1,49 @@
+// -----------------------------------------------------------------------------
+// GRID MIXIN
+// -----------------------------------------------------------------------------
+//
+// Provides a reusable helper for applying common CSS grid layout properties.
+//
+// This mixin keeps grid layouts consistent across the project by centralising
+// commonly repeated properties such as grid-template-columns,
+// grid-template-row, grid-template-areas, gap, align-items and justify-items.
+//
+// Use this mixin when an element needs a structured two-dimensional layout,
+// such as page sections, card grids, featured layouts, or image/content blocks.
+//
+// =============================================================================
+
+@mixin grid(
+    $cols: null,
+    $rows: null,
+    $areas: null,
+    $gap: null,
+    $align: null,
+    $justify: null
+) {
+    display: grid;
+
+    @if $cols != null {
+        grid-template-columns: repeat($cols, minmax(0, 1fr));
+    }
+
+    @if $cols != null {
+        grid-template-rows: repeat($rows, minmax(0, 1fr));
+    }
+
+    @if $areas != null {
+        grid-template-areas: $areas;
+    }
+
+    @if $gap != null {
+        gap: $gap;
+    }
+
+    @if $align != null {
+        align-items: $align;
+    }
+
+    @if $justify != null {
+        justify-items: $justify;
+    }
+}
