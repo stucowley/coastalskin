@@ -30,8 +30,8 @@
 ) {
     $valid-position-types: static, relative, absolute, fixed, sticky;
 
-    @if not list.index($valid-position-types, $position-type) {
-        @error "`#{position-type}` is not a valid position type";
+    @if not list.index($valid-position-types, $position) {
+        @error "`#{$type}` is not a valid position type";
     }
 
     position: $position;
