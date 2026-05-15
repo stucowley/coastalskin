@@ -1,0 +1,207 @@
+/**
+ * -----------------------------------------------------------------------------
+ * HEADER
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global site header layout and navigation styles.
+ *
+ * The header provides the main site branding and primary navigation. Mobile
+ * navigation is controlled through a hamburger toggle and changes to a
+ * horizontal navigation layout on larger viewports.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+.site-header {
+    --header-bg: var(--clr-neutral-100) / 0.85;
+    --header-shadow: 0 #{func.rem(2) func.rem(16)} hsl(var(--clr-neutral-100) / 0.08);
+
+    --header-inner-gap: var(--space-500);
+    --header-inner-min-height: #{func.rem(80)};
+
+    --header-logo-width: #{func.rem(160)};
+    --header-logo-height: auto;
+
+    --header-toggle-padding: var(--space-200);
+    --header-toggle-border: 0;
+    --header-toggle-bg: transparent;
+    --header-toggle-icon-width: #{func.rem(28)};
+    --header-toggle-icon-height: #{func.rem(2)};
+    --header-toggle-icon-color: var(--clr-brand-primary);
+
+    --header-nav-padding-block: var(--space-600);
+    --header-nav-bg: var(--header-bg);
+    --header-nav-shadow: 0 #{func.rem(12) func.rem(16)} hsl(var(--clr-neutral-900) / 0.08);
+    --header-nav-clr: var(--clr-brand-primary);
+    --header-nav-clr-active: var(--clr-brand-secondary);
+    --header-nav-fs: var(--fs-14);
+    --header-nav-fw: var(--fw-semibold);
+    --header-nav-tracking: var(--tracking-widest);
+    --header-nav-case: var(--case-upper);
+    --header-nav-gap: var(--space-200);
+
+    position: relative;
+    z-index: 1000;
+    background-color: hsl(var(--header-bg));
+    box-shadow: var(--header-shadow);
+
+    &__inner {
+        @include mixin.flex(row, space-between, center, var(--header-inner-gap));
+
+        min-height: var(--header-inner-min-height);
+    }
+
+    &__brand {
+        @include mixin.flex(row, center, center);
+    }
+
+    &__logo {
+        @include mixin.size(
+            var(--header-logo-width),
+            var(--header-logo-height)
+        );
+
+        transition: opacity var(--transition-base);
+
+        &:hover,
+        &:focus-visible {
+            opacity: 0.5;
+        }
+    }
+
+    &__toggle {
+        display: inline-grid;
+        place-items: center;
+        margin-inline-start: auto;
+        padding: var(--header-toggle-padding);
+        border: var(--header-toggle-border);
+        background-color: var(--header-toggle-bg);
+        cursor: pointer;
+
+        &-icon {
+            @include mixin.size(
+                var(--header-toggle-icon-width),
+                var(--header-toggle-icon-height)
+            );
+
+            position: relative;
+            display: block;
+            color: var(--header-toggle-icon-color);
+            background-color: currentColor;
+            transition: background-color var(--transition-base);
+
+            &::before,
+            &::after {
+                @include mixin.position($type: absolute, $top: 0, $left: 0);
+                @include mixin.size(
+                    100%,
+                    #{func.rem(2)}
+                );
+
+                background-color: currentColor;
+                transition: transform var(--transition-base);
+                content: '';
+            }
+
+            &::before {
+                transform: translateY(#{func.rem(-8)});
+            }
+
+            &::after {
+                transform: translateY(#{func.rem(8)});
+            }
+        }
+    }
+
+    &__toggle[aria-expanded='true'] &__toggle-icon {
+        background-color: transparent;
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__nav {
+        @include mixin.position(
+            absolute,
+            $inset-block: 100% auto,
+            $inset-inline: 0
+        );
+
+        padding-block: var(--header-nav-padding-block);
+        background-color: hsl(var(--header-nav-bg));
+        box-shadow: var(--header-nav-shadow);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(#{func.rem(-8)});
+        transition:
+            opacity var(--transition-base),
+            transform var(--transition-base),
+            visibility var(--transition-base);
+
+        &[data-visible='true'] {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        a {
+            color: hsl(var(--header-nav-clr));
+            font-size: var(--header-nav-fs);
+            font-weight: var(--header-nav-fw);
+            letter-spacing: var(--header-nav-tracking);
+            text-transform: var(--header-nav-case);
+
+            &:hover,
+            &:focus-visible {
+                color: hsl(var(--header-nav-clr-active));
+            }
+        }
+
+        &-list {
+            @include mixin.grid($gap: var(--header-nav-gap));
+
+            text-align: center;
+        }
+    }
+
+    /**
+     * Media Queries
+     */
+
+    @media(min-width: 64em) {
+        --header-inner-min-height: #{func.rem(132)};
+
+        --header-logo-width: #{func.rem(192)};
+
+        --header-nav-padding-block: 0;
+        --header-nav-bg: transparent;
+        --header-nav-shadow: none;
+        --header-nav-gap: var(--space-600);
+
+        &__toggle {
+            display: none;
+        }
+
+        &__nav {
+            position: static;
+            margin-inline-start: auto;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            transition: none;
+
+            &-list {
+                @include mixin.flex(row, flex-end, center);
+
+                text-align: initial;
+            }
+        }
+    }
+}

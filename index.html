@@ -7,6 +7,47 @@
     <title>Coastal Skin + Beauty</title>
   </head>
   <body>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a
+          href="/"
+          class="site-header__brand"
+          aria-label="Coastal Skin & Beauty home"
+        >
+          <img
+            src="/src/assets/images/logo.svg"
+            alt="Coastal Skin & Beauty"
+            class="site-header__logo"
+          />
+        </a>
+
+        <button
+          class="site-header__toggle"
+          type="button"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span class="sr-only">Toggle menu</span>
+          <span class="site-header__toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="primary-navigation"
+          class="site-header__nav"
+          aria-label="Primary navigation"
+          data-primary-nav
+          data-visible="false"
+        >
+          <ul class="site-header__nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="about-us.html">About us</a></li>
+            <li><a href="treatments.html">Treatments</a></li>
+            <li><a href="contact-us.html">Contact us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <script type="module" src="/src/main.js"></script>
   </body>
