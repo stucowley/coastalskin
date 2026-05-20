@@ -1,0 +1,141 @@
+/**
+ * -----------------------------------------------------------------------------
+ * CONTENT BLOCK
+ * -----------------------------------------------------------------------------
+ *
+ * Defines reusable image and content sections used throughout the site.
+ *
+ * Content blocks pair supporting media with written content such as an
+ * eyebrow, heading, body copy, and optional call-to-action. Layout variants
+ * allow the image and content columns to be reversed while keeping the same
+ * underlying structure. A subtle background colour is applied to odd blocks.
+ *
+ * These blocks are designed to map cleanly to CMS-managed content sections.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+.content-block {
+    --content-block-padding: var(--space-800) 0;
+    --content-block-text-align: center;
+    --content-block-bg-odd: var(--clr-neutral-300) / 0.125;
+
+    --content-block-inner-gap: var(--space-700);
+
+    --content-block-media-img-width: 100%;
+
+    --content-block-content-max-width: #{func.rem(512)};
+
+    --content-block-eyebrow-clr: var(--clr-text-muted);
+    --content-block-eyebrow-fw: var(--fw-semibold);
+    --content-block-eyebrow-case: var(--case-upper);
+    --content-block-eyebrow-tracking: var(--tracking-widest);
+
+    --content-block-btn-margin: 0 auto;
+
+    --content-block-content-only-width: 100%;
+
+
+    padding: var(--content-block-padding);
+    text-align: var(--content-block-text-align);
+
+    &__inner {
+        @include mixin.grid(
+            $gap: var(--content-block-inner-gap),
+            $align: center
+        );
+    }
+
+    &__media {
+        overflow: hidden;
+
+        img {
+            @include mixin.size(
+                var(--content-block-media-img-width),
+                auto
+            );
+
+            margin-inline: auto;
+        }
+    }
+
+    &__content {
+        max-width: var(--content-block-content-max-width);
+        margin-inline: auto;
+    }
+
+    &__eyebrow {
+        color: hsl(var(--content-block-eyebrow-clr));
+        font-weight: var(--content-block-eyebrow-fw);
+        text-transform: var(--content-block-eyebrow-case);
+        letter-spacing: var(--content-block-eyebrow-tracking);
+    }
+
+    &[data-content-block-layout='content-only'] {
+        .content-block__inner {
+            grid-template-columns: 1fr;
+        }
+
+        .content-block__content {
+            max-width: none;
+            width: var(--content-block-content-only-width);
+        }
+    }
+
+    .btn {
+        margin: var(--content-block-btn-margin);
+    }
+
+    &:nth-of-type(odd) {
+        background-color: hsl(var(--content-block-bg-odd));
+    }
+
+    /**
+     * Media Queries
+     */
+
+    @media(min-width: 48em) {
+        --content-block-media-img-width: 60%;
+        --content-block-content-max-width: #{func.rem(512)};
+        --content-block-content-only-width: 60%;
+    }
+
+    @media(min-width: 64em) {
+        --flow-space: var(--space-600);
+        --content-block-padding: var(--space-800) #{func.rem(32)};
+        --content-block-text-align: left;
+        --content-block-btn-margin: initial;
+        --content-block-media-img-width: 80%;
+        --content-block-content-only-width: 70%;
+
+        &__inner {
+            @include mixin.grid($cols: 2);
+        }
+
+        &[data-content-block-layout='img-left'] {
+            .content-block__media {
+                order: 1;
+            }
+
+            .content-block__content {
+                order: 2;
+            }
+        }
+
+        &[data-content-block-layout='img-right'] {
+            .content-block__media {
+                order: 2;
+            }
+
+            .content-block__content {
+                order: 1;
+            }
+        }
+    }
+
+    @media(min-width: 80em) {
+        --content-block-content-max-width: #{func.rem(768)};
+    }
+}
