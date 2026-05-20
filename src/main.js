@@ -44,3 +44,56 @@ if (navToggle && primaryNav) {
         }
     });
 }
+
+/*
+ * Parallax backgrounds
+ *
+ * Creates a reusable parallax effect by updating a CSS custom property on any
+ * element using the data-parallax attribute. The element's background-position
+ * can then use this custom property to shift its background image independently
+ * from its content.
+ *
+ * The effect is disabled for users who prefer reduced motion.
+ */
+
+const parallaxItems = document.querySelectorAll('[data-parallax]');
+const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+);
+
+function updateParallaxItem(item) {
+    if (prefersReducedMotion.matches) {
+        item.style.setProperty('--hero-parallax-offset', '0px');
+        return;
+    }
+
+    const itemRect = item.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    const itemIsVisible =
+        itemRect.bottom > 0 && itemRect.top < viewportHeight;
+
+    if (!itemIsVisible) {
+        return;
+    }
+
+    const strength = Number(item.dataset.parallaxStrength || -120);
+    const scrollProgress = itemRect.top / viewportHeight;
+    const parallaxOffset = scrollProgress * strength;
+
+    item.style.setProperty('--hero-parallax-offset', `${parallaxOffset}px`);
+}
+
+function updateParallaxItems() {
+    parallaxItems.forEach(updateParallaxItem);
+}
+
+if (parallaxItems.length) {
+    updateParallaxItems();
+
+    window.addEventListener('scroll', updateParallaxItems, {
+        passive: true,
+    });
+
+    window.addEventListener('resize', updateParallaxItems);
+}
