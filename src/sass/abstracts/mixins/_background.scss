@@ -15,9 +15,9 @@
 
 @mixin background(
     $img: null,
-    $position: center,
-    $size: cover,
-    $repeat: no-repeat
+    $position: null,
+    $size: null,
+    $repeat: null
 ) {
     @if $img != null {
         background-image: $img;
