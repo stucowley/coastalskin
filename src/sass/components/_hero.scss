@@ -156,11 +156,18 @@
             $img: (
                 var(--hero-gradient),
                 var(--hero-bg-desktop)
+            ),
+
+            $size: (
+                cover,
+                auto 120%
             )
         );
     }
 
     @media(min-width: 80em) {
         --hero-padding-block: var(--space-800);
+
+        background-size: cover;
     }
 }
