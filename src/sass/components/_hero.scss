@@ -1,0 +1,166 @@
+/**
+ * -----------------------------------------------------------------------------
+ * HERO
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the hero section used to introduce the home page and internal pages.
+ *
+ * Hero styles control the full-width visual presentation, background image,
+ * overlay, central content alignment, heading hierarchy, breadcrumb layout,
+ * and primary call to action layout.
+ *
+ * The background images are supplied through custom properties so they can be
+ * updated per page or populated dynamically by the CMS while keeping the
+ * visual styling managed by CSS.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+.hero {
+    --hero-overlay: hsl(var(--clr-brand-accent) / 0.55);
+    --hero-parallax-offset: 0px;
+    --hero-gradient: linear-gradient(var(--hero-overlay), var(--hero-overlay));
+    --hero-min-height: #{func.rem(512)};
+    --hero-padding-block: var(--space-700);
+
+    --hero-content-flow-space: var(--space-400);
+    --hero-content-max-width: #{func.rem(1024)};
+    --hero-content-clr: var(--clr-neutral-100);
+    --hero-content-text-align: center;
+
+    --hero-eyebrow-fw: var(--fw-semibold);
+    --hero-eyebrow-fs: var(--fs-14);
+    --hero-eyebrow-tracking: var(--tracking-widest);
+    --hero-eyebrow-case: var(--case-upper);
+
+    --hero-actions-gap: var(--space-400);
+
+    --hero-breadcrumb-gap: var(--space-200);
+    --hero-breadcrumb-fs: var(--fs-18);
+    --hero-breadcrumb-leading: var(--leading-18);
+    --hero-breadcrumb-clr-active: var(--clr-neutral-100) / 0.75;
+
+    @include mixin.background(
+        $img: (
+            var(--hero-gradient),
+            var(--hero-bg-mobile)
+        ),
+        $position: (
+            center,
+            center calc(50% + var(--hero-parallax-offset))
+        ),
+        $size: (
+            cover,
+            cover
+        ),
+        $repeat: (
+            no-repeat,
+            no-repeat
+        )
+    );
+
+    position: relative;
+    display: grid;
+    min-height: var(--hero-min-height);
+    padding-block: var(--hero-padding-block);
+    overflow: hidden;
+
+    &__inner {
+        display: grid;
+        place-items: center;
+        min-height: inherit;
+    }
+
+    &__content {
+        --flow-space: var(--hero-content-flow-space);
+
+        max-width: var(--hero-content-max-width);
+        color: hsl(var(--hero-content-clr));
+        text-align: var(--hero-content-text-align);
+    }
+
+    &__eyebrow {
+        max-width: none;
+        color: currentColor;
+        font-weight: var(--hero-eyebrow-fw);
+        font-size: var(--hero-eyebrow-fs);
+        letter-spacing: var(--hero-eyebrow-tracking);
+        text-transform: var(--hero-eyebrow-case);
+    }
+
+    &__heading {
+        color: currentColor;
+    }
+
+    &__actions {
+        --flow-space: var(--space-700);
+
+        @include mixin.flex(
+            $align: center,
+            $direction: column,
+            $justify: center,
+            $gap: var(--hero-actions-gap)
+        );
+
+        .btn {
+            width: 70%;
+        }
+    }
+
+    &__breadcrumb {
+        @include mixin.flex(
+            $justify: center,
+            $gap: var(--hero-breadcrumb-gap)
+        );
+
+        color: currentColor;
+        font-size: var(--hero-breadcrumb-fs);
+        line-height: var(--hero-breadcrumb-leading);
+
+        a {
+            color: currentColor;
+
+            &:hover,
+            &:focus-visible {
+                color: hsl(var(--hero-breadcrumb-clr-active));
+            }
+        }
+    }
+
+    /**
+     * Media Queries
+     */
+
+    @media(min-width: 48em) {
+        --hero-padding-block: var(--space-100);
+        --hero-content-flow-space: var(--space-600);
+        --hero-eyebrow-fs: var(--fs-16);
+
+        &__actions {
+            flex-direction: row;
+
+            .btn {
+                width: initial;
+                font-size: var(--fs-16);
+            }
+        }
+    }
+
+    @media(min-width: 64em) {
+        --hero-padding-block: var(--space-800);
+        --hero-content-flow-space: var(--space-600);
+
+        @include mixin.background(
+            $img: (
+                var(--hero-gradient),
+                var(--hero-bg-desktop)
+            )
+        );
+    }
+
+    @media(min-width: 80em) {
+        --hero-padding-block: var(--space-800);
+    }
+}
