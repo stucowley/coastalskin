@@ -19,6 +19,8 @@
 @use '../abstracts/functions' as func;
 
 .hero {
+    --eyebrow-clr: currentColor;
+
     --hero-overlay: hsl(var(--clr-brand-accent) / 0.55);
     --hero-parallax-offset: 0px;
     --hero-gradient: linear-gradient(var(--hero-overlay), var(--hero-overlay));
@@ -29,11 +31,6 @@
     --hero-content-max-width: #{func.rem(1024)};
     --hero-content-clr: var(--clr-neutral-100);
     --hero-content-text-align: center;
-
-    --hero-eyebrow-fw: var(--fw-semibold);
-    --hero-eyebrow-fs: var(--fs-14);
-    --hero-eyebrow-tracking: var(--tracking-widest);
-    --hero-eyebrow-case: var(--case-upper);
 
     --hero-actions-gap: var(--space-400);
 
@@ -79,15 +76,6 @@
         max-width: var(--hero-content-max-width);
         color: hsl(var(--hero-content-clr));
         text-align: var(--hero-content-text-align);
-    }
-
-    &__eyebrow {
-        max-width: none;
-        color: currentColor;
-        font-weight: var(--hero-eyebrow-fw);
-        font-size: var(--hero-eyebrow-fs);
-        letter-spacing: var(--hero-eyebrow-tracking);
-        text-transform: var(--hero-eyebrow-case);
     }
 
     &__heading {

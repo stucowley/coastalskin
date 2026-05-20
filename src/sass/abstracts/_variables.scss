@@ -113,6 +113,17 @@
     --case-lower: lowercase;
 
     /**
+     * Eyebrow
+     */
+
+    --eyebrow-fw: var(--fw-semibold);
+    --eyebrow-fs: var(--fs-14);
+    --eyebrow-leading: var(--leading-14);
+    --eyebrow-tracking: var(--tracking-widest);
+    --eyebrow-case: var(--case-upper);
+    --eyebrow-clr: var(--clr-text-muted);
+
+    /**
      * Transitions
      */
 

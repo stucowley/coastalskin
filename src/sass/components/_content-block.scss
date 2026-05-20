@@ -28,11 +28,6 @@
 
     --content-block-content-max-width: #{func.rem(512)};
 
-    --content-block-eyebrow-clr: var(--clr-text-muted);
-    --content-block-eyebrow-fw: var(--fw-semibold);
-    --content-block-eyebrow-case: var(--case-upper);
-    --content-block-eyebrow-tracking: var(--tracking-widest);
-
     --content-block-btn-margin: 0 auto;
 
     --content-block-content-only-width: 100%;
@@ -64,13 +59,6 @@
     &__content {
         max-width: var(--content-block-content-max-width);
         margin-inline: auto;
-    }
-
-    &__eyebrow {
-        color: hsl(var(--content-block-eyebrow-clr));
-        font-weight: var(--content-block-eyebrow-fw);
-        text-transform: var(--content-block-eyebrow-case);
-        letter-spacing: var(--content-block-eyebrow-tracking);
     }
 
     &[data-content-block-layout='content-only'] {
