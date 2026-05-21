@@ -1,0 +1,108 @@
+/**
+ * -----------------------------------------------------------------------------
+ * TREATMENT CARD
+ * -----------------------------------------------------------------------------
+ *
+ * Defines reusable treatment card styles used to preview individual treatments.
+ *
+ * Treatment cards pair an image with supporting information such as category
+ * label, heading, short description, and call to action text.
+ *
+ * Treatment cards are designed to map cleanly to CMS treatment entries.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+.treatment-card {
+    --treatment-card-bg: var(--clr-neutral-100);
+    --treatment-card-radius: #{func.rem(14)};
+
+    --treatment-card-content-flow-space: var(--space-400);
+
+    --treatment-card-content-padding: var(--space-500);
+
+    --treatment-card-eyebrow-fs: var(--fs-14);
+    --treatment-card-eyebrow-leading: var(--leading-14);
+
+    --treatment-card-heading-fs: var(--fs-28);
+    --treatment-card-heading-leading: var(--leading-28);
+
+    --treatment-card-cta-gap: var(--space-200);
+    --treatment-card-cta-clr: var(--clr-brand-primary);
+    --treatment-card-cta-fs: var(--fs-14);
+    --treatment-card-cta-fw: var(--fw-bold);
+    --treatment-card-cta-tracking: var(--tracking-widest);
+    --treatment-card-cta-case: var(--case-upper);
+
+    background-color: hsl(var(--treatment-card-bg));
+    border-radius: var(--treatment-card-radius);
+    overflow: hidden;
+
+    &__link {
+        @include mixin.grid;
+
+        height: 100%;
+    }
+
+    &__media {
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+
+        img {
+            @include mixin.size(100%, 100%);
+
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+    }
+
+    &__content {
+        --flow-space: var(--treatment-card-content-flow-space);
+
+        padding: var(--treatment-card-content-padding);
+    }
+
+    .eyebrow {
+        font-size: var(--treatment-card-eyebrow-fs);
+        line-height: var(--treatment-card-eyebrow-leading);
+    }
+
+    &__heading {
+        font-size: var(--treatment-card-heading-fs);
+        line-height: var(--treatment-card-heading-leading);
+    }
+
+    &__cta {
+        @include mixin.flex(
+            $align: flex-start,
+            $gap: var(--treatment-card-cta-gap)
+        );
+
+        width: fit-content;
+        color: hsl(var(--treatment-card-cta-clr));
+        font-size: var(--treatment-card-cta-fs);
+        font-weight: var(--treatment-card-cta-fw);
+        letter-spacing: var(--treatment-card-cta-tracking);
+        text-transform: var(--treatment-card-cta-case);
+        transition: transform var(--transition-base);
+
+        &::after {
+            content: '';
+            align-items: center;
+        }
+    }
+
+    &:hover,
+    &:focus-within {
+        .treatment-card__media img {
+            transform: scale(1.04);
+        }
+
+        .treatment-card__cta {
+            transition: transform 150ms linear;
+            transform: translateX(0.5rem);
+        }
+    }
+}
