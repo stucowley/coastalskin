@@ -161,4 +161,12 @@
 
     --container-max-width: #{func.rem(1200)};
     --container-padding: #{func.rem(32)};
+
+    /**
+     * Media Queries
+     */
+
+    @media(min-width: 48em) {
+        --eyebrow-fs: var(--fs-16);
+    }
 }

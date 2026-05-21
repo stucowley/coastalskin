@@ -135,6 +135,7 @@ $heading-size-breakpoints: (
 .eyebrow {
     max-width: none;
     font-weight: var(--eyebrow-fw);
+    font-size: var(--eyebrow-fs);
     letter-spacing: var(--eyebrow-tracking);
     text-transform: var(--eyebrow-case);
     color: hsl(var(--eyebrow-clr));
