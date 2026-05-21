@@ -76,7 +76,7 @@
         margin: var(--content-block-btn-margin);
     }
 
-    &:nth-of-type(odd) {
+    &:nth-of-type(even) {
         background-color: hsl(var(--content-block-bg-odd));
     }
 
