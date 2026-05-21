@@ -1,0 +1,132 @@
+/**
+ * -----------------------------------------------------------------------------
+ * HOME
+ * -----------------------------------------------------------------------------
+ *
+ * Defines page-specific styles for the home page.
+ *
+ * These styles control sections that are unique to the home page layout, such
+ * as featured treatments, home page interactions, and other one-off page
+ * sections.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+/**
+ * Featured Treatments
+ */
+
+.featured-treatments {
+    --featured-treatments-padding-block: var(--space-800);
+    --featured-treatments-bg: var(--clr-neutral-200);
+
+    --featured-treatments-inner-gap: var(--space-700);
+
+    --featured-treatments-header-gap: var(--space-500);
+
+    --featured-treatments-intro-flow-space: var(--space-400);
+    --featured-treatments-intro-fs: var(--fs-18);
+    --featured-treatments-intro-leading: var(--leading-18);
+    --featured-treatments-intro-max-width: #{func.rem(672)};
+
+    --featured-treatments-heading-clr: var(--clr-brand-primary);
+    --featured-treatments-heading-fs: var(--fs-36);
+    --featured-treatments-heading-leading: var(--leading-36);
+    --featured-treatments-heading-case: none;
+
+    --featured-treatments-grid-gap: var(--space-500);
+
+    padding-block: var(--featured-treatments-padding-block);
+    background-color: hsl(var(--featured-treatments-bg));
+
+    &__inner {
+        @include mixin.grid($gap: var(--featured-treatments-inner-gap));
+    }
+
+    &__header {
+        @include mixin.grid($gap: var(--featured-treatments-header-gap));
+    }
+
+    &__intro {
+        --flow-space: var(--featured-treatments-intro-flow-space);
+
+        font-size: var(--featured-treatments-intro-fs);
+        line-height: var(--featured-treatments-intro-leading);
+        max-width: var(--featured-treatments-intro-max-width);
+    }
+
+    &__heading {
+        color: hsl(var(--featured-treatments-heading-clr));
+        font-size: var(--featured-treatments-heading-fs);
+        line-height: var(--featured-treatments-heading-leading);
+        text-transform: var(--featured-treatments-heading-case);
+    }
+
+    &__actions {
+        @include mixin.flex($justify: start);
+    }
+
+    &__grid {
+        @include mixin.grid(
+            $cols: 1,
+            $gap: var(--featured-treatments-grid-gap)
+        );
+    }
+
+    /**
+     * Media Queries
+     */
+
+    @media(min-width: 48em) {
+        --featured-treatments-heading-fs: var(--fs-48);
+        --featured-treatments-heading-leading: var(--leading-48);
+
+        &__actions {
+            justify-content: start;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            & > .treatment-card:last-child {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(100% - var(--space-500)) / 2;
+            }
+        }
+
+    }
+
+    @media(min-width: 64em) {
+        &__header {
+            @include mixin.grid(
+                $align: center,
+                $justify: space-between
+            );
+
+            grid-template-columns: minmax(0, #{func.rem(672)}) auto;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            & > .treatment-card:last-child {
+                grid-column: auto;
+                justify-self: stretch;
+                width: 100%;
+            }
+        }
+
+        &__actions {
+            justify-content: end;
+        }
+    }
+
+    @media(min-width: 80em) {
+        --featured-treatments-padding-block: var(--space-900);
+        --featured-treatments-inner-gap: var(--space-800);
+        --featured-treatments-grid-gap: var(--space-600);
+    }
+}
