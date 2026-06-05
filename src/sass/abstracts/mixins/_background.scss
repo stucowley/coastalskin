@@ -1,0 +1,34 @@
+// =============================================================================
+// BACKGROUND MIXIN
+// -----------------------------------------------------------------------------
+//
+// Provides a reusable helper for applying common background properties.
+//
+// This mixin keeps background declarations consistent by centralising repeated
+// background image, position, size, and repeat patterns.
+//
+// Use this mixin when an element needs a reusable background image, decorative
+// pattern, overlay, or responsive visual treatment.
+//
+// =============================================================================
+
+@mixin background(
+    $img: null,
+    $position: null,
+    $size: null,
+    $repeat: no-repeat
+) {
+    @if $img != null {
+        background-image: url('#{$img}');
+    }
+
+    @if $position != null {
+        background-position: $position;
+    }
+
+    @if $size != null {
+        background-size: $size;
+    }
+
+    background-repeat: $repeat;
+}
