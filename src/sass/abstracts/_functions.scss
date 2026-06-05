@@ -1,0 +1,48 @@
+// =============================================================================
+// FUNCTIONS
+// -----------------------------------------------------------------------------
+//
+// The functions partial contains reusable Sass functions used throughout the
+// project.
+//
+// Functions should return calculated values and avoid outputting CSS directly.
+// Use this file for small utility helpers, for example, unit conversion, math
+// helpers, and other value transformations.
+//
+// =============================================================================
+
+@use 'sass:math';
+
+// -----------------------------------------------------------------------------
+// Pixel to REM Conversion
+// -----------------------------------------------------------------------------
+//
+// Converts pixel (px) values to rem units using a configurable base font size.
+// Useful for keeping design values easy to reference in pixels while
+// outputting scalable, user-preference-friendly rem units.
+//
+// Example:
+//      font-size: func.rem(18px); // Returns 1.125rem;
+//
+// -----------------------------------------------------------------------------
+
+@function rem($px, $base: 16) {
+    @return math.div($px, $base) * 1rem;
+}
+
+// -----------------------------------------------------------------------------
+// Pixel to EM Conversion
+// -----------------------------------------------------------------------------
+//
+// Converts pixel (px) values to em units using a configurable base font size.
+// Useful for keeping design and media query min-inline-size values easy to
+// reference in pixels while outputting scaleable, user-preference-friendly em
+// units.
+//
+// Example:
+//      @media(min-inline-size: func.em(768)) {...}
+// -----------------------------------------------------------------------------
+
+@function em($px, $base: 16) {
+    @return math.div($px, $base) * 1em;
+}
