@@ -1,0 +1,33 @@
+// =============================================================================
+// FONT FACE
+// -----------------------------------------------------------------------------
+//
+// Provides a reusable helper for declaring custom `@font-face` rules.
+//
+// This mixin keeps font imports consistent across the project by centralising
+// common font-face properties such as font family, source paths, font weight,
+// font style, and font display.
+//
+// Use this mixin when registering local font files for use throughout the
+// stylesheet.
+//
+// Fonts that imported using the font-face mixin are only compatible with
+// woff2. When including fonts, omit the `.woff2` file extension.
+//
+// =============================================================================
+
+@mixin font-face(
+    $family,
+    $src,
+    $weight: 400,
+    $style: normal,
+    $display: swap
+) {
+    @font-face {
+        font-family: $family;
+        font-weight: $weight;
+        font-style: $style;
+        font-display: $display;
+        src: url('{#{$src}.woff2') format('woff2');
+    }
+}
