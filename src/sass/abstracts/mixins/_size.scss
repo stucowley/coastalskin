@@ -1,0 +1,50 @@
+// =============================================================================
+// SIZE
+// -----------------------------------------------------------------------------
+//
+// Provides a reusable helper for applying sizing values.
+//
+// This mixin keeps sizing declarations consistent by centralising common
+// width, height, max-height, max-width, min-height and min-height patterns,
+// such as squared icons, image wrappers, buttons, and decorative elements.
+//
+// Conditionals are used to help control which properties will be compiled to
+// the stylesheet.
+//
+// Use this mixin when an element needs a shared, or repeated height, width,
+// max-height, max-width, min-height and min-width declaration.
+//
+// =============================================================================
+
+@mixin size(
+    $inline-size: null,
+    $block-size: null,
+    $min-inline-size: null,
+    $min-block-size: null,
+    $max-inline-size: null,
+    $max-block-size: null
+) {
+    @if $inline-size != null {
+        inline-size: $inline-size;
+    }
+
+    @if $block-size != null {
+        block-size: $block-size;
+    }
+
+    @if $min-inline-size != null {
+        min-inline-size: $min-inline-size;
+    }
+
+    @if $min-block-size != null {
+        min-block-size: $min-block-size;
+    }
+
+    @if $max-inline-size != null {
+        max-inline-size: $max-inline-size;
+    }
+
+    @if $max-block-size != null {
+        max-block-size: $max-block-size;
+    }
+}
