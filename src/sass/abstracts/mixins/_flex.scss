@@ -1,0 +1,42 @@
+// =============================================================================
+// FLEX
+// -----------------------------------------------------------------------------
+//
+// The flex mixin provides a reusable helper for applying common flexbox layout
+// properties.
+//
+// This mixin keeps flex layouts consistent across the project by centralising
+// commonly repeated properties such as `flex-direction`, `justify-content`,
+// `align-items`, `flex-wrap` and `gap`.
+//
+// Use this mixin when an element needs a flexible one-dimensional layout such
+// as, aligning navigation items, button groups, cards, or inline content.
+//
+// =============================================================================
+
+@mixin flex(
+    $row-gap: null,
+    $col-gap: null,
+    $direction: row,
+    $justify: center,
+    $align: center,
+    $wrap: nowrap
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+
+    @if $row-gap != null and $col-gap != null {
+        gap: $row-gap $col-gap;
+    } @else {
+        @if $row-gap != null {
+            row-gap: $row-gap;
+        }
+
+        @if $col-gap != null {
+            column-gap: $col-gap;
+        }
+    }
+}
