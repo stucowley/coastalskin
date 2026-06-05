@@ -1,0 +1,259 @@
+/**
+ * =============================================================================
+ * VARIABLES
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global design tokens used throughout the project.
+ *
+ * These variables are declared as CSS custom properties on the `:root`
+ * selector so they can be accessed globally, updated in the browser, and
+ * reused across components, layouts, utility classes, etc.
+ *
+ * Sass variables should only be added here when they are needed for
+ * Sass-specific logic such as mixins, functions, loops, or compile-time
+ * calculations.
+ *
+ * ========================================================================== */
+
+@use 'functions' as func;
+
+:root {
+    /* -------------------------------------------------------------------------
+     * Colours
+     * -------------------------------------------------------------------------
+     *
+     * Colour values are stored as raw HSL parameters instead of complete hsl()
+     * functions. This allows each colour token to be reused with optional
+     * alpha values when needed.
+     *
+     * ====================================================================== */
+
+    --clr-neut-100: 0 0% 100%;
+    --clr-neut-200: 220 27% 98%;
+    --clr-neut-300: 220 36% 84%;
+    --clr-neut-400: 221 17% 67%;
+    --clr-neut-500: 221 12% 54%;
+    --clr-neut-600: 218 19% 37%;
+    --clr-neut-700: 218 20% 26%;
+    --clr-neut-800: 218 22% 15%;
+    --clr-neut-900: 219 87% 12%;
+
+    --clr-brand-pri: 219 89% 17%;
+    --clr-brand-sec: 216 51% 73%;
+    --clr-brand-alt: 4 27% 69%;
+
+    --clr-txt-pri: var(--clr-neut-600);
+    --clr-txt-mute: var(--clr-neut-400);
+    --clr-txt-inverse: var(--clr-neut-100);
+
+    --clr-heading-pri: var(--clr-brand-pri);
+    --clr-heading-sec: var(--clr-brand-sec);
+
+    --clr-link: var(--clr-neut-700);
+    --clr-link-active: var(--clr-brand-sec);
+
+    --clr-bg-body: var(--clr-neut-100);
+    --clr-bg-soft: var(--clr-neut-300) / 0.125;
+    --clr-bg-inverse: var(--clr-neut-700);
+
+    --clr-focus-ring: 208 100% 50%;
+
+    /* -------------------------------------------------------------------------
+     * Typography
+     * ---------------------------------------------------------------------- */
+
+    --ff-sans: system-ui, sans-serif;
+    --ff-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --ff-cadiz: 'Cadiz', var(--ff-sans);
+    --ff-ivymode: 'IvyMode', var(--ff-serif);
+
+    --fw-reg: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --fs-12: #{func.rem(12)};
+    --fs-14: #{func.rem(14)};
+    --fs-16: #{func.rem(16)};
+    --fs-18: #{func.rem(18)};
+    --fs-20: #{func.rem(20)};
+    --fs-22: #{func.rem(22)};
+    --fs-24: #{func.rem(24)};
+    --fs-28: #{func.rem(28)};
+    --fs-32: #{func.rem(32)};
+    --fs-36: #{func.rem(36)};
+    --fs-42: #{func.rem(42)};
+    --fs-48: #{func.rem(48)};
+    --fs-56: #{func.rem(56)};
+    --fs-64: #{func.rem(64)};
+    --fs-sml: 80%; /* Base font size for `<small>` */
+
+    --lh-12: 1.6;
+    --lh-14: 1.6;
+    --lh-16: 1.6;
+    --lh-18: 1.55;
+    --lh-20: 1.5;
+    --lh-22: 1.5;
+    --lh-24: 1.4;
+    --lh-28: 1.35;
+    --lh-32: 1.3;
+    --lh-36: 1.25;
+    --lh-42: 1.2;
+    --lh-48: 1.15;
+    --lh-56: 1.1;
+    --lh-64: 1.05;
+
+    --ls-normal: 0;
+    --ls-wide: 0.04em;
+    --ls-wider: 0.08em;
+    --ls-widest: 0.1875em;
+
+    --case-normal: none;
+    --case-upper: uppercase;
+    --case-caps: capitalize;
+    --case-lower: lowercase;
+
+    /* -------------------------------------------------------------------------
+     * Body Copy
+     * ---------------------------------------------------------------------- */
+
+    --body-ff: var(--ff-cadiz);
+    --body-fs: var(--fs-16);
+    --body-fw: var(--fw-reg);
+    --body-lh: var(--lh-16);
+    --body-clr: var(--clr-txt-pri);
+
+    /* -------------------------------------------------------------------------
+     * Headings
+     * ---------------------------------------------------------------------- */
+
+    --heading-ff-pri: var(--ff-ivymode);
+    --heading-ff-sec: var(--ff-cadiz);
+
+    --heading-pri-fw: var(--fw-reg);
+    --heading-sec-fw: var(--fw-bold);
+
+    --heading-pri-ls: var(--ls-normal);
+    --heading-sec-ls: var(--ls-wider);
+
+    --heading-pri-case: var(--case-normal);
+    --heading-sec-case: var(--case-upper);
+
+    --h1-fs: var(--fs-36);
+    --h2-fs: var(--fs-32);
+    --h3-fs: var(--fs-28);
+    --h4-fs: var(--fs-24);
+    --h5-fs: var(--fs-20);
+    --h6-fs: var(--fs-18);
+
+    --h1-lh: var(--lh-36);
+    --h2-lh: var(--lh-32);
+    --h3-lh: var(--lh-28);
+    --h4-lh: var(--lh-24);
+    --h5-lh: var(--lh-20);
+    --h6-lh: var(--lh-18);
+
+    /* -------------------------------------------------------------------------
+     * Transition
+     * ---------------------------------------------------------------------- */
+
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease;
+    --transition-slowest: 900ms ease;
+
+    /* -------------------------------------------------------------------------
+     * Focus Ring
+     * ---------------------------------------------------------------------- */
+
+    --focus-ring-alpha: 0.65;
+    --focus-ring-width: #{func.rem(2)};
+    --focus-ring-offset: var(--focus-ring-width);
+    --focus-ring: hsl(var(--clr-focus-ring) / var(--focus-ring-alpha));
+
+    /* -------------------------------------------------------------------------
+     * Spacers
+     * ---------------------------------------------------------------------- */
+
+    /* Core Spacers */
+    --spacer-100: #{func.rem(10)};
+    --spacer-200: #{func.rem(14)};
+    --spacer-300: #{func.rem(16)};
+    --spacer-400: #{func.rem(20)};
+    --spacer-500: #{func.rem(24)};
+    --spacer-600: #{func.rem(32)};
+    --spacer-700: #{func.rem(52)};
+    --spacer-800: #{func.rem(86)};
+    --spacer-900: #{func.rem(132)};
+
+    /* Expanded Spacers */
+    --spacer-xs: #{func.rem(2)};
+    --spacer-sm: #{func.rem(4)};
+    --spacer-md: #{func.rem(64)};
+    --spacer-lg: #{func.rem(256)};
+    --spacer-xl: #{func.rem(512)};
+
+    /* -------------------------------------------------------------------------
+     * Container
+     * ---------------------------------------------------------------------- */
+
+    --container-maxw: #{func.rem(1100)};
+    --container-padd: var(--spacer-200);
+
+    /* -------------------------------------------------------------------------
+     * Shape
+     * ---------------------------------------------------------------------- */
+
+    --radius-sm: #{func.rem(4)};
+    --radius-md: #{func.rem(8)};
+    --radius-lg: #{func.rem(14)};
+
+    /* -------------------------------------------------------------------------
+     * Media Queries
+     * ---------------------------------------------------------------------- */
+
+    @media(min-inline-size: #{func.em(768)}) {
+        --container-padd: var(--spacer-400);
+
+        --h1-fs: var(--fs-48);
+        --h2-fs: var(--fs-36);
+        --h3-fs: var(--fs-32);
+        --h4-fs: var(--fs-28);
+        --h5-fs: var(--fs-24);
+        --h6-fs: var(--fs-20);
+
+        --h1-lh: var(--lh-48);
+        --h2-lh: var(--lh-36);
+        --h3-lh: var(--lh-32);
+        --h4-lh: var(--lh-28);
+        --h5-lh: var(--lh-24);
+        --h6-lh: var(--lh-20);
+    }
+
+    @media(min-inline-size: #{func.em(1280)}) {
+        --h1-fs: var(--fs-56);
+        --h2-fs: var(--fs-48);
+        --h3-fs: var(--fs-36);
+        --h4-fs: var(--fs-28);
+        --h5-fs: var(--fs-24);
+
+        --h1-lh: var(--lh-56);
+        --h2-lh: var(--lh-48);
+        --h3-lh: var(--lh-36);
+        --h4-lh: var(--lh-28);
+        --h5-lh: var(--lh-24);
+    }
+
+    @media(min-inline-size: #{func.em(1440)}) {
+        --h1-fs: var(--fs-64);
+        --h2-fs: var(--fs-56);
+        --h3-fs: var(--fs-36);
+        --h4-fs: var(--fs-28);
+        --h5-fs: var(--fs-24);
+
+        --h1-lh: var(--lh-64);
+        --h2-lh: var(--lh-56);
+        --h3-lh: var(--lh-36);
+        --h4-lh: var(--lh-28);
+        --h5-lh: var(--lh-24);
+    }
+}
