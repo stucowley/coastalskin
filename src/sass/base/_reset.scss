@@ -1,0 +1,58 @@
+/**
+ * -----------------------------------------------------------------------------
+ * RESET
+ * -----------------------------------------------------------------------------
+ *
+ * Resets default browser styles to create a more consistent styling foundation
+ * across the project.
+ *
+ * These styles remove common browser defaults such as box sizing, margin,
+ * padding, font inheritance, document height, colour scheme, and media element
+ * behaviour.
+ *
+ * This reset is intentionally lightweight and should only include broad,
+ * low-level rules that improve consistency without applying visual design.
+ *
+ * ========================================================================== */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    color-scheme: light;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
