@@ -1,0 +1,94 @@
+/**
+ * -----------------------------------------------------------------------------
+ * TYPOGRAPHY
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global typography styles used throughout the project.
+ *
+ * These styles apply the project's font families, font-sizes, font-weights,
+ * line-height, colours, and spacing defaults defaults to common text elements.
+ *
+ * Typography styles should provide a consistent baseline for readable content.
+ * Component-specific type styling live in the relevant component section.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+/* Body Copy */
+body {
+    font-family: var(--body-ff);
+    font-size: var(--body-fs);
+    font-weight: var(--body-fw);
+    line-height: var(--body-lh);
+    color: hsl(var(--body-clr));
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    font-family: var(--heading-ff-pri);
+    font-weight: var(--fw-reg);
+    letter-spacing: var(--heading-pri-ls);
+    text-transform: var(--heading-pri-case);
+    text-wrap: balance;
+    color: hsl(var(--clr-heading-pri));
+}
+
+h4,
+h5,
+h6 {
+    font-family: var(--heading-sec-ff);
+    font-weight: var(--heading-sec-fw);
+    letter-spacing: var(--heading-sec-ls);
+    text-transform: var(--heading-sec-case);
+    text-wrap: balance;
+    color: hsl(var(--clr-heading-sec));
+}
+
+h1 {
+    font-size: var(--h1-fs);
+    line-height: var(--h1-lh);
+}
+
+h2 {
+    font-size: var(--h2-fs);
+    line-height: var(--h2-lh);
+}
+
+h3 {
+    font-size: var(--h3-fs);
+    line-height: var(--h3-lh);
+}
+
+h4 {
+    font-size: var(--h4-fs);
+    line-height: var(--h4-lh);
+}
+
+h5 {
+    font-size: var(--h5-fs);
+    line-height: var(--h5-lh);
+}
+
+h6 {
+    font-size: var(--h6-fs);
+    line-height: var(--h6-lh);
+}
+
+/* Inline Text Elements */
+strong,
+b {
+    font-weight: var(--fw-bold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+small {
+    font-size: var(--fs-sml);
+}
