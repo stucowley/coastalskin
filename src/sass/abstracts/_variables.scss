@@ -225,7 +225,7 @@
      * Media Queries
      * ---------------------------------------------------------------------- */
 
-    @media(min-inline-size: #{func.em(768)}) {
+    @media(width >= #{func.em(768)}) {
         --container-padd: var(--spacer-400);
 
         --h1-fs: var(--fs-48);
@@ -243,7 +243,7 @@
         --h6-lh: var(--lh-20);
     }
 
-    @media(min-inline-size: #{func.em(1280)}) {
+    @media(width >= #{func.em(1280)}) {
         --h1-fs: var(--fs-56);
         --h2-fs: var(--fs-48);
         --h3-fs: var(--fs-36);
@@ -257,7 +257,7 @@
         --h5-lh: var(--lh-24);
     }
 
-    @media(min-inline-size: #{func.em(1440)}) {
+    @media(width >= #{func.em(1440)}) {
         --h1-fs: var(--fs-64);
         --h2-fs: var(--fs-56);
         --h3-fs: var(--fs-36);
