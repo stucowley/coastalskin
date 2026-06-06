@@ -1,0 +1,67 @@
+/**
+ * -----------------------------------------------------------------------------
+ * FONTS
+ * -----------------------------------------------------------------------------
+ *
+ * Registers the custom font files used throughout the project.
+ *
+ * These font-face declarations define the available font families, weights,
+ * and styles used by the site.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+
+/* -----------------------------------------------------------------------------
+ * Cadiz
+ * -----------------------------------------------------------------------------
+ *
+ * The Cadiz font family is the primary font for the site. The available font
+ * weights from the design are regular, semibold and bold.
+ *
+ * Cadiz is also used as the secondary heading (h4-h6) font family.
+ * -------------------------------------------------------------------------- */
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $src: ('/src/assets/fonts/Cadiz/Cadiz-Regular')
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $src: ('/src/assets/fonts/Cadiz/Cadiz-Italic'),
+    $style: italic
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $src: ('/src/assets/fonts/Cadiz/Cadiz-Semibold'),
+    $weight: 600
+);
+
+@include mixin.font-face(
+    $family: 'Cadiz',
+    $src: ('/src/assets/fonts/Cadiz/Cadiz-Bold'),
+    $weight: 700
+);
+
+/* -----------------------------------------------------------------------------
+ * Ivy Mode
+ * -----------------------------------------------------------------------------
+ *
+ * The Ivy Mode font family is the primary font for site headings. The only
+ * available font weight from the design is regular. Italic style is also
+ * available.
+ *
+ * -------------------------------------------------------------------------- */
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $src: ('/src/assets/fonts/IvyMode/IvyMode-Regular')
+);
+
+@include mixin.font-face(
+    $family: 'IvyMode',
+    $src: ('/src/assets/fonts/Cadiz/Cadiz-Bold'),
+    $style: italic
+);
