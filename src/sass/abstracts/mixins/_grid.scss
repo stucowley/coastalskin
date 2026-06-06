@@ -17,6 +17,7 @@
 @mixin grid(
     $cols: null,
     $rows: null,
+    $gap: null,
     $areas: null,
     $col-gap: null,
     $row-gap: null,
@@ -31,6 +32,10 @@
 
     @if $rows != null {
         grid-template-rows: repeat($row, minmax(0, 1fr));
+    }
+
+    @if $gap != nill {
+        gap: $gap;
     }
 
     @if $areas != null {
