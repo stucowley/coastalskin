@@ -189,20 +189,20 @@
      * ---------------------------------------------------------------------- */
 
     /* Core Spacers */
-    --spacer-100: #{func.rem(10)};
-    --spacer-200: #{func.rem(14)};
-    --spacer-300: #{func.rem(16)};
-    --spacer-400: #{func.rem(20)};
+    --spacer-100: #{func.rem(4)};
+    --spacer-200: #{func.rem(8)};
+    --spacer-300: #{func.rem(12)};
+    --spacer-400: #{func.rem(16)};
     --spacer-500: #{func.rem(24)};
     --spacer-600: #{func.rem(32)};
-    --spacer-700: #{func.rem(52)};
-    --spacer-800: #{func.rem(86)};
-    --spacer-900: #{func.rem(132)};
+    --spacer-700: #{func.rem(48)};
+    --spacer-800: #{func.rem(64)};
+    --spacer-900: #{func.rem(164)};
 
     /* Expanded Spacers */
     --spacer-xs: #{func.rem(2)};
-    --spacer-sm: #{func.rem(4)};
-    --spacer-md: #{func.rem(64)};
+    --spacer-sm: #{func.rem(10)};
+    --spacer-md: #{func.rem(128)};
     --spacer-lg: #{func.rem(256)};
     --spacer-xl: #{func.rem(512)};
 
