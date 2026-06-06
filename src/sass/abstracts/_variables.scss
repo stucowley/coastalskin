@@ -50,7 +50,7 @@
     --clr-heading-sec: var(--clr-brand-sec);
 
     --clr-link: var(--clr-neut-700);
-    --clr-link-active: var(--clr-brand-sec);
+    --clr-link-active: var(--clr-neut-900);
 
     --clr-bg-body: var(--clr-neut-100);
     --clr-bg-soft: var(--clr-neut-300) / 0.125;
@@ -151,6 +151,19 @@
     --h4-lh: var(--lh-24);
     --h5-lh: var(--lh-20);
     --h6-lh: var(--lh-18);
+
+    /* -------------------------------------------------------------------------
+     * Links
+     * ---------------------------------------------------------------------- */
+
+    --link-dec: none;
+    --link-dec-active: none;
+
+    --link-transition:
+        background-color var(--transition-base),
+        color var(--transition-base),
+        opacity var(--transition-base);
+
 
     /* -------------------------------------------------------------------------
      * Transition
