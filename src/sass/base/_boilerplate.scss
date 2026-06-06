@@ -26,6 +26,7 @@ a {
 
     &:hover,
     &:focus-visible {
+        text-decoration: var(--link-dec-active);
         color: hsl(var(--clr-link-active));
     }
 }
