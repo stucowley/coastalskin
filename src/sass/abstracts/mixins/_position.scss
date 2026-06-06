@@ -9,10 +9,6 @@
 // position type and related offset properties such as inset-block-start,
 // inset-inline-start, inset-block-end, and inset-inline-end.
 //
-// Conditionals are used if combinations are used, for example. If a top
-// and bottom offset is applied and no left and/or right offsets are applied,
-// inset-block will be used instead. The same goes for inset-inline.
-//
 // Use this mixin when an element needs relative, absolute, fixed, or sticky
 // positioning with optional offsets.
 //
@@ -22,10 +18,12 @@
 
 @mixin position(
     $type,
-    $block-start: null,
-    $block-end: null,
-    $inline-start: null,
-    $inline-end: null
+    $inset-block: null,
+    $inset-block-start: null,
+    $inset-block-end: null,
+    $inset-inline: null,
+    $inset-inline-start: null,
+    $inset-inline-end: null
 ) {
     // Define the valid positioning types
     $valid-pos-types: static, relative, absolute, fixed, sticky;
@@ -36,27 +34,27 @@
 
     position: $type;
 
-    @if $block-start != null and $block-end != null {
-        inset-block: $block-start $block-end
-    } @else {
-        @if $block-start != null {
-            inset-block-start: $block-start;
-        }
-
-        @if $block-end != null {
-            inset-block-end: $block-end;
-        }
+    @if $inset-block != null {
+        inset-block: $inset-block;
     }
 
-    @if $inline-start != null and $inline-end != null {
-        inset-inline: $inline-start $inline-end;
-    } @else {
-        @if $inline-start != null {
-            inset-inline-start: $inline-start;
-        }
+    @if $inset-block-start != null {
+        inset-block-start: $inset-block-start;
+    }
 
-        @if $inline-end != null {
-            inset-inline-end: $inline-end;
-        }
+    @if $inset-block-end != null {
+        inset-block-end: $inset-block-end;
+    }
+
+    @if $inset-inline != null {
+        inset-inline: $inset-inline;
+    }
+
+    @if $inset-inline-start != null {
+        inset-inline-start: $inset-inline-start;
+    }
+
+    @if $inset-inline-end != null {
+        inset-inline-end: $inset-inline-end;
     }
 }
