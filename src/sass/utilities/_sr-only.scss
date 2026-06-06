@@ -1,0 +1,24 @@
+/**
+ * -----------------------------------------------------------------------------
+ * SCREEN READER ONLY
+ * -----------------------------------------------------------------------------
+ *
+ * An accessibility utility that visually hides content while keeping it
+ * available to assistive technologies such as a screen reader.
+ *
+ * This utility is useful for adding accessible labels or context that should
+ * be announced by screen readers without being visible in the interface.
+ *
+ * ========================================================================== */
+
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
