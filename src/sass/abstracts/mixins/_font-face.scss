@@ -28,6 +28,6 @@
         font-weight: $weight;
         font-style: $style;
         font-display: $display;
-        src: url('{#{$src}.woff2') format('woff2');
+        src: url('#{$src}.woff2') format('woff2');
     }
 }
