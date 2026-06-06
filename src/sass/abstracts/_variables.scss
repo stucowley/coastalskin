@@ -182,6 +182,7 @@
     --focus-ring-width: #{func.rem(2)};
     --focus-ring-offset: var(--focus-ring-width);
     --focus-ring: hsl(var(--clr-focus-ring) / var(--focus-ring-alpha));
+    --focus-ring-radius: var(--radius-sm);
 
     /* -------------------------------------------------------------------------
      * Spacers
