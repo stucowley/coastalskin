@@ -17,6 +17,7 @@
 @mixin flex(
     $row-gap: null,
     $col-gap: null,
+    $gap: null,
     $direction: row,
     $justify: center,
     $align: center,
@@ -27,6 +28,10 @@
     justify-content: $justify;
     align-items: $align;
     flex-wrap: $wrap;
+
+    @if $gap != null {
+        gap: $gap;
+    }
 
     @if $row-gap != null and $col-gap != null {
         gap: $row-gap $col-gap;
