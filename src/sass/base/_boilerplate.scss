@@ -1,0 +1,53 @@
+/**
+ * -----------------------------------------------------------------------------
+ * BOILERPLATE
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global base styles used across the project.
+ *
+ * These styles build on the reset by applying low-level defaults for the
+ * document, body, links, buttons, form elements, media, and common interactive
+ * states.
+ *
+ * Boilerplate styles should remain broad and reusable. Component-specific
+ * styling should be added in the component section.
+ *
+ * ========================================================================== */
+
+body {
+    background-color: hsl(var(--clr-bg-body));
+    color: hsl(var(--clr-txt-pri));
+}
+
+a {
+    color: hsl(var(--clr-link));
+    text-decoration: var(--link-dec);
+    transition: var(--link-transition);
+
+    &:hover,
+    &:focus-visible {
+        color: hsl(var(--clr-link-active));
+    }
+}
+
+:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-width);
+    border-radius: var(--focus-ring-radius);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+ol,
+ul {
+    list-style-type: none;
+}
+
+[hidden] {
+    display: none !important;
+}
