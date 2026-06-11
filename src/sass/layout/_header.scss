@@ -1,0 +1,275 @@
+/**
+ * -----------------------------------------------------------------------------
+ * HEADER
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global site header layout and navigation styles.
+ *
+ * The header provides the main site branding and primary navigation. Mobile
+ * navigation is controlled through a hamburger toggle and changes to a
+ * horizontal style navigation layout on larger viewports.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+
+.site-header {
+    // Local Variables
+    --header-p: 0;
+    --header-z-index: 999;
+    --header-z-index-raised: calc(var(--header-z-index) + 2);
+    --header-bg: transparent;
+    --header-bg-scrolled: var(--clr-neut-100) / 0.6;
+    --header-blur: none;
+    --header-shadow: none;
+    --header-shadow-offset: 0 0.25rem 1rem;
+    --header-shadow-clr: var(--clr-neut-900) / 0.08;
+
+    --header-inner-gap: var(--spacer-500);
+    --header-inner-min-h: 6rem;
+    --header-inner-py: var(--spacer-200);
+
+    --header-logo-w: 10rem;
+
+    --header-toggle-icn-clr: var(--clr-neut-100);
+    --header-toggle-icn-h: 0.125rem;
+
+    --header-nav-bg: var(--header-bg-scrolled);
+    --header-nav-p: 1.875rem 1rem;
+    --header-nav-shadow-offset: 0 0.75rem 1rem;
+    --header-nav-shadow-clr: var(--clr-neut-900) / 0.08;
+    --header-nav-clr: var(--clr-brand-pri);
+    --header-nav-alpha-hover: 0.6;
+    --header-nav-fs: var(--fs-18);
+    --header-nav-fw: var(--fw-semibold);
+    --header-nav-ls: var(--ls-widest);
+    --header-nav-case: var(--case-upper);
+
+    --header-nav-links-gap: 0.875rem;
+
+    @include mixin.position(
+        $type: fixed,
+        $inset-block: 0 auto,
+        $inset-inline: 0
+    );
+
+    z-index: var(--header-z-index);
+    padding: var(--header-p);
+    background-color: var(--header-bg);
+    backdrop-filter: var(--header-blur);
+    box-shadow: var(--header-shadow);
+    transition:
+        background-color var(--transition-base),
+        box-shadow var(--transition-base);
+
+    &--scrolled,
+    &--menu-open {
+        --header-bg: hsl(var(--header-bg-scrolled));
+        --header-blur: blur(1rem);
+        --header-clr: var(--clr-brand-pri);
+        --header-shadow:
+            var(--header-shadow-offset)
+            var(--header-shadow-clr);
+    }
+
+    &--scrolled &__toggle-icon,
+    &--menu-open &__toggle-icon {
+        --header-toggle-icn-clr: var(--clr-brand-pri);
+    }
+
+    // Header Inner
+    &__inner {
+        @include mixin.flex(
+            $justify: space-between,
+            $align: center,
+            $gap: var(--header-inner-gap)
+        );
+
+        min-block-size: var(--header-inner-min-h);
+        padding-inline: var(--header-inner-py);
+    }
+
+    // Header Branding
+    &__branding {
+        @include mixin.flex();
+
+        position: relative;
+        z-index: var(--header-z-index-raised);
+        text-decoration: none;
+    }
+
+    &__logo {
+        @include mixin.size(
+            $inline-size: var(--header-logo-w),
+            $block-size: auto
+        );
+
+        display: block;
+    }
+
+    // Navigation Toggle
+    &__toggle {
+        position: relative;
+        z-index: var(--header-z-index-raised);
+        display: inline-grid;
+        place-items: center;
+        margin-inline-start: auto;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &__toggle-icon {
+        @include mixin.size(
+            $inline-size: 1.75rem,
+            $block-size: 0.125rem
+        );
+
+        position: relative;
+        display: block;
+        color: hsl(var(--header-toggle-icn-clr));
+        background-color: currentColor;
+        transition:
+            color var(--transition-base),
+            background-color var(--transition-base);
+
+        &::before,
+        &::after {
+            @include mixin.position(
+                $type: absolute,
+                $inset-block-start: 0,
+                $inset-inline-end: 0
+            );
+
+            @include mixin.size(
+                $inline-size: 100%,
+                $block-size: var(--header-toggle-icn-h)
+            );
+
+            content: '';
+            border-radius: inherit;
+            background-color: currentColor;
+            transition: transform var(--transition-base);
+        }
+
+        &::before {
+            transform: translateY(-0.5rem);
+        }
+
+        &::after {
+            transform: translateY(0.5rem);
+        }
+    }
+
+    &__toggle[aria-expanded='true'] &__toggle-icon {
+        background-color: transparent;
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    // Navigation
+    &__nav {
+        @include mixin.position(
+            $type: absolute,
+            $inset-block: 100% auto,
+            $inset-inline: 0
+        );
+
+        padding: var(--header-nav-p);
+        background-color: hsl(var(--header-nav-bg));
+        box-shadow:
+            var(--header-nav-shadow-offset)
+            hsl(var(--header-nav-shadow-clr));
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.5rem);
+        transition:
+            opacity var(--transition-base),
+            transform var(--transition-base),
+            visibility var(--transition-base);
+
+        &[data-visible='true'] {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        a {
+            color: hsl(var(--header-nav-clr));
+            font-size: var(--header-nav-fs);
+            font-weight: var(--header-nav-fw);
+            letter-spacing: var(--header-nav-ls);
+            text-decoration: none;
+            text-transform: var(--header-nav-case);
+            transition: opacity var(--transition-base);
+
+            &:hover,
+            &.active {
+                opacity: var(--header-nav-alpha-hover);
+            }
+        }
+    }
+
+    // Navigation List (Could be called &__nav-links)
+    &__nav-links {
+        @include mixin.grid(
+            $gap: var(--header-nav-links-gap)
+        );
+    }
+
+    /* -------------------------------------------------------------------------
+     * Media Queries
+     * ---------------------------------------------------------------------- */
+
+    @media(min-width: #{func.em(768)}) {
+        --header-p: 0.25rem 2rem;
+        --header-nav-p: 2rem;
+    }
+
+    @media(min-width: #{func.em(1024)}) {
+        --header-inner-min-h: 7rem;
+        --header-logo-w: 12rem;
+
+        &__toggle {
+            display: none;
+        }
+
+        &__nav {
+            --header-nav-links-gap: var(--spacer-600);
+            --header-nav-bg: transparent;
+            --header-nav-p: 0 1rem;
+            --header-nav-fs: var(--fs-14);
+            --header-nav-clr: var(--clr-neut-100);
+
+            position: static;
+            margin-inline-start: auto;
+            box-shadow: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            transition: none;
+        }
+
+        &--scrolled &__nav,
+        &--menu-open &__nav {
+            --header-nav-clr: var(--clr-brand-pri);
+        }
+
+        &__nav-links {
+            @include mixin.flex(
+                $direction: row,
+                $align: flex-end,
+                $justify: center,
+            );
+
+            text-align: initial;
+        }
+    }
+}

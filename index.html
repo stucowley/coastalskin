@@ -7,6 +7,53 @@
     <title>Coastal Skin &plus; Beauty Goolwa</title>
   </head>
   <body>
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a
+          class="site-header__brand"
+          href="/"
+          aria-label="Coastal Skin &amp; Beauty home"
+        >
+          <img
+            class="site-header__logo"
+            src="/src/assets/images/logo-light.svg"
+            alt="Coastal Skin &amp; Beauty"
+            data-header-logo
+            data-logo-light="/src/assets/images/logo-light.svg"
+            data-logo-primary="/src/assets/images/logo-primary.svg"
+          />
+
+          <span class="sr-only">Coastal Skin &amp; Beauty</span>
+        </a>
+
+        <button
+          class="site-header__toggle"
+          type="button"
+          data-nav-toggle
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Toggle menu</span>
+          <span class="site-header__toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          class="site-header__nav"
+          id="primary-navigation"
+          data-primary-nav
+          data-visible="false"
+          aria-label="Primary navigation"
+        >
+          <ul class="site-header__nav-links">
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="about-us.html">About us</a></li>
+            <li><a href="treatments.html">Treatments</a></li>
+            <li><a href="contact-us.html">Contact us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
