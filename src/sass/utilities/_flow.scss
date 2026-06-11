@@ -1,0 +1,19 @@
+/**
+ * -----------------------------------------------------------------------------
+ * FLOW
+ * -----------------------------------------------------------------------------
+ *
+ * Adds consistent vertical spacing between direct child elements.
+ *
+ * This utility is useful for content blocks where heading, paragraph, lists,
+ * buttons, and other elements need predictable spacing without each element
+ * carrying its own margin.
+ *
+ * The spacing can be customised per instance by overriding the `--flow-space`
+ * custom property.
+ *
+ * ========================================================================== */
+
+.flow > * + * {
+    margin-block-start: var(--flow-spacer, var(--spacer-400)) !important;
+}
