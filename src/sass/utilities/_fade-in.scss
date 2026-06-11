@@ -1,0 +1,28 @@
+/**
+ * -----------------------------------------------------------------------------
+ * FADE IN
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the base styles for elements that fade into view as they enter the
+ * viewport.
+ *
+ * The active state is applied with JavaScript once an observed element becomes
+ * visible. Motion is reduced for users who prefer reduced motion.
+ *
+ * ========================================================================== */
+
+.fade-in {
+    opacity: 0;
+    transition: opacity var(--transition-slowest);
+}
+
+.fade-in--active {
+    opacity: 1;
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .fade-in {
+        opacity: 1;
+        transition: none;
+    }
+}
