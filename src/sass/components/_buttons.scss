@@ -1,0 +1,122 @@
+/**
+ * -----------------------------------------------------------------------------
+ * BUTTONS
+ * -----------------------------------------------------------------------------
+ *
+ * Defines the global button component styles used throughout the project.
+ *
+ * Buttons use a shared button base class for common layout, typography,
+ * spacing and interaction behaviour. Visual variations are controlled through
+ * button style and theme options, allowing for either solid or outline buttons
+ * to share the same underlying structure.
+ *
+ * These styles should be used for button-like links, form buttons, and other
+ * interactive call to action that need consistent presentation across the site.
+ *
+ * ========================================================================== */
+
+@use '../abstracts/mixins' as mixin;
+
+.btn {
+    --btn-p: var(--spacer-400);
+    --btn-border: 1px solid transparent;
+    --btn-radius: var(--radius-md);
+    --btn-ff: var(--body-ff);
+    --btn-fs: var(--fs-14);
+    --btn-fw: var(--fw-semibold);
+    --btn-leading: 1;
+    --btn-case: var(--case-upper);
+    --btn-ls: var(--ls-widest);
+
+    @include mixin.flex($justify: center);
+
+    inline-size: fit-content;
+    padding: var(--btn-p);
+    border: var(--btn-border);
+    border-radius: var(--btn-radius);
+    font-family: var(--btn-ff);
+    font-size: var(--btn-fs);
+    font-weight: var(--btn-fw);
+    line-height: var(--btn-leading);
+    letter-spacing: var(--btn-ls);
+    text-align: center;
+    text-decoration: none;
+    text-transform: var(--btn-case);
+    transition:
+        color var(--transition-base),
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+    cursor: pointer;
+
+    /* -------------------------------------------------------------------------
+     * Button Styles
+     * ---------------------------------------------------------------------- */
+
+    /* Solid Button */
+    &[data-btn-style='solid'] {
+        color: hsl(var(--btn-clr));
+        background-color: hsl(var(--btn-bg));
+        border-color: hsl(var(--btn-bg));
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            color: hsl(var(--btn-clr-active) / 0.65);
+            border-color: hsl(var(--btn-clr-active) / 0.25);
+        }
+    }
+
+    /* Outline Button */
+    &[data-btn-style='outline'] {
+        color: hsl(var(--btn-bg));
+        background-color: transparent;
+        border-color: hsl(var(--btn-bg));
+
+        &:hover,
+        &:focus-visible,
+        &.active {
+            color: hsl(var(--btn-clr-active));
+            background-color: hsl(var(--btn-bg-active));
+            border-color: hsl(var(--btn-bg-active));
+        }
+    }
+
+    /* -------------------------------------------------------------------------
+     * Button Themes
+     * ---------------------------------------------------------------------- */
+
+    &[data-btn-theme='primary'] {
+        --btn-clr: var(--clr-neut-100);
+        --btn-clr-active: var(--btn-clr);
+        --btn-bg: var(--clr-brand-pri);
+        --btn-bg-active: var(--btn-bg);
+    }
+
+    &[data-btn-theme='secondary'] {
+        --btn-clr: var(--clr-neut-100);
+        --btn-clr-active: var(--btn-clr);
+        --btn-bg: var(--clr-brand-sec);
+        --btn-bg-active: var(--btn-bg);
+    }
+
+    &[data-btn-theme='accent'] {
+        --btn-clr: var(--clr-neut-100);
+        --btn-clr-active: var(--btn-clr);
+        --btn-bg: var(--clr-brand-sec);
+        --btn-bg-active: var(--btn-bg);
+    }
+
+    &[data-btn-theme='on-light'] {
+        --btn-clr: var(--clr-neut-100);
+        --btn-clr-active: var(--btn-clr);
+        --btn-bg: var(--clr-neut-700);
+        --btn-bg-active: var(--btn-bg);
+    }
+
+    &[data-btn-theme='on-dark'] {
+        --btn-clr: var(--clr-brand-pri);
+        --btn-clr-active: var(--btn-clr);
+        --btn-bg: var(--clr-neut-100);
+        --btn-bg-active: var(--btn-bg);
+    }
+}
