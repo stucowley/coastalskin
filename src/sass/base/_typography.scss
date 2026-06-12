@@ -78,6 +78,18 @@ h6 {
     line-height: var(--h6-lh);
 }
 
+/* Eyebrow Text */
+.eyebrow {
+    max-inline-size: none;
+    color: hsl(var(--eyebrow-clr));
+    font-size: var(--eyebrow-fs);
+    font-weight: var(--eyebrow-fw);
+    line-height: var(--eyebrow-lh);
+    letter-spacing: var(--eyebrow-ls);
+    text-transform: var(--eyebrow-case);
+}
+
+
 /* Inline Text Elements */
 strong,
 b {
