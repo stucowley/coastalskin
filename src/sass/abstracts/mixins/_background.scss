@@ -19,7 +19,7 @@
     $repeat: no-repeat
 ) {
     @if $img != null {
-        background-image: url('#{$img}');
+        background-image: $img;
     }
 
     @if $position != null {
